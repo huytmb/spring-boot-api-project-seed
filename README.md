@@ -14,14 +14,14 @@ Spring Boot API Project Seed dựa trên Spring Boot & MyBatis，phát triển n
  
 ## Quick Start
 1. Fork project
-2. Đến package ```test``` thực thi ```CodeGenerator```
-3. 如果只是想根据上面的演示来亲自试试的话可以使用```test resources```目录下的```demo-user.sql```，否则忽略该步
-3. 输入表名，运行```CodeGenerator.main()```方法，生成基础代码（可能需要刷新项目目录才会出来）
-4. 根据业务在基础代码上进行扩展
-5. 对开发环境配置文件```application-dev.properties```进行配置，启动项目，Have Fun！
+2. Đến package ```test``` chứa ```CodeGenerator``` class.
+3. Sử dụng ```demo-user.sql``` trong ```test resources```，để khởi tạo dữ liệu ban đầu.
+3. Nhập tên table cần generator trong ```CodeGenerator.main()```
+4. Run ```CodeGenerator.main()```
+5. Cập nhật profile ```application-dev.properties```. Run Srping boot...have fun !
  
 ## Lưu ý khi phát triển
-- 表名，建议使用小写，多个单词使用下划线拼接
+- Tên bảng: chữ thường, các chữ được sử dụng ký tự ```_``` để nối. Ví dụ: shift_work.
 - Model内成员变量建议与表字段数量对应，如需扩展成员变量（比如连表查询）建议创建DTO，否则需在扩展的成员变量上加```@Transient```注解，详情见[通用Mapper插件文档说明](https://mapperhelper.github.io/docs/2.use/)
 - 建议业务失败直接使用```ServiceException("message")```抛出，由统一异常处理器来封装业务失败的响应结果，比如```throw new ServiceException("该手机号已被注册")```，会直接被封装为```{"code":400,"message":"该手机号已被注册"}```返回，无需自己处理，尽情抛出
 - 需要工具类的话建议先从```apache-commons-*```和```guava```中找，实在没有再造轮子或引入类库，尽量精简项目
