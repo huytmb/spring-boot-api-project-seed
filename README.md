@@ -22,20 +22,20 @@ Spring Boot API Project Seed dựa trên Spring Boot & MyBatis，phát triển n
  
 ## Lưu ý khi phát triển
 - Tên bảng: chữ thường, các chữ được sử dụng ký tự ```_``` để nối. Ví dụ: shift_work.
-- Model内成员变量建议与表字段数量对应，如需扩展成员变量（比如连表查询）建议创建DTO，否则需在扩展的成员变量上加```@Transient```注解，详情见[通用Mapper插件文档说明](https://mapperhelper.github.io/docs/2.use/)
-- 建议业务失败直接使用```ServiceException("message")```抛出，由统一异常处理器来封装业务失败的响应结果，比如```throw new ServiceException("该手机号已被注册")```，会直接被封装为```{"code":400,"message":"该手机号已被注册"}```返回，无需自己处理，尽情抛出
-- 需要工具类的话建议先从```apache-commons-*```和```guava```中找，实在没有再造轮子或引入类库，尽量精简项目
-- 开发规范建议遵循阿里巴巴Java开发手册（[最新版下载](https://github.com/lihengming/java-codes/blob/master/shared-resources/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8CV1.2.0.pdf))
-- 建议在公司内部使用[ShowDoc](https://github.com/star7th/showdoc)、[SpringFox-Swagger2](https://github.com/springfox/springfox) 、[RAP](https://github.com/thx/RAP)等开源项目来编写、管理API文档
+- Model ánh xạ tương ứng các trường dữ liệu trong table，đối với các thuộc tính mở rộng（ngay cả các thuộc tính nằm tại các table khác）đề xuất khởi tạo DTO，hoặc nếu bổ sung thuộc tính vào Model cần kèm theo Annotation ```@Transient```, chi tiết [Mapper](https://mapperhelper.github.io/docs/2.use/)
+- Exception trong Service layer sử dụng throw ```ServiceException("message")```，thống nhất kiểu trả về Exception，ví dụ ```throw new ServiceException("Duplicate Username")```，response trả về ```{"code":400,"message":"Duplicate Username"}```，xử lý response trả về theo một quy chuẩn chung.
+- Các thư viện utils chung ```apache-commons-*``` và ```guava```.
+- Conventions cho JAVA của Alibaba（[Phiên bản mới nhất](https://github.com/lihengming/java-codes/blob/master/shared-resources/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8CV1.2.0.pdf))
+- Đặc tả API:[ShowDoc](https://github.com/star7th/showdoc)、[SpringFox-Swagger2](https://github.com/springfox/springfox) 、[RAP](https://github.com/thx/RAP).
  
 ## Tài liệu
 - Spring Boot（[Tổng quan Spring Boot](http://www.jianshu.com/p/1a9fd8936bd8)）
 - MyBatis（[Tài liệu chính thức của China](http://www.mybatis.org/mybatis-3/zh/index.html)）
-- MyBatis Mapper Plugin（[查看官方中文文档](https://mapperhelper.github.io/docs/)）
-- MyBatis PageHelper Paging Plugin（[查看官方中文文档](https://pagehelper.github.io/)）
-- Druid Spring Boot Starter（[查看官方中文文档](https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter/)）
-- Fastjson（[查看官方中文文档](https://github.com/Alibaba/fastjson/wiki/%E9%A6%96%E9%A1%B5)）
+- MyBatis Mapper Plugin（[Documentation](https://mapperhelper.github.io/docs/)）
+- MyBatis PageHelper Paging Plugin（[Documentation](https://pagehelper.github.io/)）
+- Druid Spring Boot Starter（[Github](https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter/)）
+- Fastjson（[Wiki](https://github.com/Alibaba/fastjson/wiki/%E9%A6%96%E9%A1%B5)）
 - ...
 
 ## License
-Bấm [Star](https://github.com/lihengming/spring-boot-api-project-seed/stargazers) & và [Fork](https://github.com/lihengming/spring-boot-api-project-seed/network/members)。
+Bấm [Star](https://github.com/lihengming/spring-boot-api-project-seed/stargazers) & [Fork](https://github.com/lihengming/spring-boot-api-project-seed/network/members)。
