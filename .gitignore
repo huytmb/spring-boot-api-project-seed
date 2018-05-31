@@ -8,7 +8,7 @@ target/
 .settings
 .springBeans
 
-### IntelliJ IDEA ###
+### IntelliJ IDEA 2018 ###
 .idea
 *.iws
 *.iml
